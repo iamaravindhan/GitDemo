@@ -1,0 +1,372 @@
+Dev Ops
+
+Week 9 - Day 1 :
+--------------
+
+Devops is union of people,process and products to enable continuous delivery of value to end user.
+It is strategy , culture . Development and Operations team work together
+
+
+SDLC : Software Development Life Cycle 
+
+It is  a development process for creating a software product
+
+1.Requirement gathering
+
+2.Planning
+
+3.Architecture Design
+
+4.Software Development
+
+5.Testing
+
+6.Deployment
+
+
+Wter fall model
+
+
+Plan Build Test Review Deploy
+
+
+
+-----
+
+Devops life cycle:
+
+Combination of differerent phases of continuous software development 
+
+1.Plan - Teamm should adopt agile.
+2.build  - Git
+3.Continuous integration and delivery(CI/CD) - keep on build , test , delivery
+4.monitor and alert - quickly identify and resolve the issue automatically notify the change to the team
+5.operate  - end to end delivery of product to customer
+6.Continuous feedback  - Evaluate each release and generate report
+
+
+
+
+devOps tools :
+
+1.Repository management : gitub..
+2.CI/CD(continuous integration / continuous delivery)Tools - Jenkins..Bamboo,Teamcity,Gitub events
+3.Build - Apche ant, Apche maven,
+4.Containerazation(3projects developed in deifferent versions to run them on same pc we use this)-Docker..,Kubernetes..
+5.Configurtaion management tools - Chef,ansible,puppet
+6.testing-selenium - jira,microsoft project
+7.continuous monitoring - Nagios
+
+
+
+DevOps Engineer : 
+
+https://docs.google.com/document/d/1Ca4HJRDkdcS1pG2XO4BijOhnNNtLpbwv/edit?usp=sharing&ouid=110827299025243333109&rtpof=true&sd=true
+
+
+
+================================
+
+Week 9 - Day 2 :
+----------------
+
+Source Code Managemet Tools (SCM tools) : Remote
+Tools - BitBucket,TFS,Github - Repository management
+
+Version controlling System - local mchine
+
+Tools - Git,SVN
+
+--
+
+GitHub - Is a container
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Microsoft Windows [Version 10.0.19044.1620]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\system32>git --version
+git version 2.36.1.windows.1
+
+C:\Windows\system32>c:
+
+C:\Windows\system32>cd c:
+C:\Windows\System32
+
+C:\Windows\system32>c:
+
+C:\Windows\system32>md gitdemo
+
+C:\Windows\system32>cd gitdemo
+
+C:\Windows\System32\gitdemo>cd c:/
+
+c:\>md gitdemo
+
+c:\>cd gitdemo
+
+c:\gitdemo>git init
+Initialized empty Git repository in C:/gitdemo/.git/
+
+c:\gitdemo>git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+c:\gitdemo>copy con file01.txt
+This is my first file
+I am in second line
+end of file
+^Z
+        1 file(s) copied.
+
+c:\gitdemo>type file01.txt
+This is my first file
+I am in second line
+end of file
+
+c:\gitdemo>
+
+VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+
+
+
+
+Git states
+
+change --> 1.modified --> 2.staged (marking for snapshot)--> 3.committed (snopshot taken)
+
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+c:\gitdemo>git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file01.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+c:\gitdemo>git add file01.txt
+
+c:\gitdemo>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file01.txt
+
+
+c:\gitdemo>copy con cities.txt
+Chennai
+Cuddalore
+Mumbai
+Bengaluru
+Hyderabad
+^Z
+        1 file(s) copied.
+
+c:\gitdemo>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file01.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        cities.txt
+
+
+c:\gitdemo>
+
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+
+
+
+Git hub: https://docs.google.com/document/d/1nBImqldNu0NjUbWGJz7XvOa-IRUdcda9/edit?usp=sharing&ouid=110827299025243333109&rtpof=true&sd=true
+EF core: https://docs.google.com/document/d/1-l0an5JskCWQxlsXe9EROAzq8RDZ6zGw/edit?usp=sharing&ouid=110827299025243333109&rtpof=true&sd=true
+
+
+
+================================
+
+Week 9 - Day 3 :
+----------------
+
+
+CI - continuous integration
+
+Develop,build,testdeployment at a time is called CI.
+
+Tools - Jenkins,GitHub actions,Gitlab
+
+
+-------
+Dotnet CLI :
+
+dotnet new console
+
+dotnet new webapp
+
+dotnet new mvc
+
+---
+Creating console application : 
+------------------------------
+md ConApp01
+
+cd ConApp01
+
+dotnet new console
+
+dotnet restore - download all dependant libraries
+
+dotnet build  - build project and generate exe file
+
+dotnet run
+
+
+Unit Test
+NUnitTest
+
+
+
+================================
+
+Week 9 - Day 4 :
+----------------
+
+Unit Test
+
+
+Structure :
+
+Assign  or Arrange
+
+Act
+
+Assert
+
+Creating Nunit using CLI :
+
+	1.dotnet new sln -o MySolution1
+	2.cd MySolution1
+	3.dotnet new nunit -o NUnitProject03
+	4.cd NUnitProject03
+	5.dotnet test
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Microsoft Visual Studio\2022\Community>cd\
+
+C:\>cd dotnet
+
+C:\dotnet>dotnet new sln -o MySolution1
+The template "Solution File" was created successfully.
+
+C:\dotnet>cd MySolution1
+
+C:\dotnet\MySolution1>dotnet new nunit -o NUnitProject03
+The template "NUnit 3 Test Project" was created successfully.
+
+Processing post-creation actions...
+Running 'dotnet restore' on C:\dotnet\MySolution1\NUnitProject03\NUnitProject03.csproj...
+  Determining projects to restore...
+  Restored C:\dotnet\MySolution1\NUnitProject03\NUnitProject03.csproj (in 3.57 sec).
+Restore succeeded.
+
+
+C:\dotnet\MySolution1>cd NUnitProject03
+
+C:\dotnet\MySolution1\NUnitProject03>dotnet test
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  NUnitProject03 -> C:\dotnet\MySolution1\NUnitProject03\bin\Debug\net6.0\NUnitProject03.dll
+Test run for C:\dotnet\MySolution1\NUnitProject03\bin\Debug\net6.0\NUnitProject03.dll (.NETCoreApp,Version=v6.0)
+Microsoft (R) Test Execution Command Line Tool Version 17.1.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 720 ms - NUnitProject03.dll (net6.0)
+
+C:\dotnet\MySolution1\NUnitProject03>
+
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+
+
+---------------------------------
+
+CI/CD -  Jenkins
+----------------
+
+
+Jenkins - automation tool for creating,build,develop,deploy and test the project
+
+
+jenkins.io
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
