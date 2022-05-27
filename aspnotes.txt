@@ -1,0 +1,398 @@
+ASP.NET 
+
+Week 5 - day 4 :
+----------------
+
+Asp.net core is used to create web applications and web services(RESTful services)
+
+execution starts at Program.cs
+
+in .net core 6.0 configurations at Program.cs file.
+in .net core 5.0 configurations at Startup.cs file.
+
+app is request process pipeline , which control program execution via middleware.
+Middleware : It is a piece of code which can be add to to request process pipe line
+
+the empty template will serve only url based request.
+
+To serve html pages in ASP.NET core
+a)All static files like html,css,js files to be under the folder called wwwroot
+b) UseStaticFiles() middleware to be added in request process pipeline
+
+======================
+Week 5 - day 5 :
+----------------
+
+======================
+Week 6 - day 2 :
+----------------
+Html helper class
+
+used to generate html tags
+======================
+Week 6 - day 3 :
+----------------
+
+
+<h1>HTML Helper, Ex-07</h1>
+<h2>Marks List Task</h2>
+@using(Html.BeginForm()){
+    <table border="1">
+        <tr>
+            <td>@Html.Label("m","Maths")</td>
+            <td>@Html.TextBox("m","",new {type="number"})</td>
+            <td>@Html.Label("tot","Total Marks");</td>
+            <td>@Html.TextBox("tot","",new {type="number"})</td>
+        </tr>
+    </table>
+    <button>Say Hello</button> <br/>
+}
+
+@ViewBag.Message
+<br/>
+
+
+Goto:
+<a asp-page="/htmlhelperex01">Ex-01</a> |
+<a asp-page="/htmlhelperex02">Ex-02</a> |
+<a asp-page="/htmlhelperex03">Ex-03</a> |
+<a asp-page="/htmlhelperex04">Ex-04</a> |
+<a asp-page="/htmlhelperex05">Ex-05</a> |
+<a asp-page="/htmlhelperex06">Ex-06</a> |
+<a asp-page="/htmlhelperdemo">Index</a>
+
+
+
+
+
+-----
+
+
+<h1>HTML Helper, Ex-07</h1>
+<h2>Marks List Task</h2>
+@{
+    int tot = ViewBag.tot;
+    double avg = ViewBag.avg;
+    string result = ViewBag.result;
+    string grade = ViewBag.grade;
+}
+@using(Html.BeginForm()){
+    <table border="1">
+        <tr>
+            <td>@Html.Label("m","Maths")</td>
+            <td>@Html.TextBox("m","",new {type="number"})</td>
+            <td>@Html.Label("tot","Total Marks")</td>
+            <td>@Html.TextBox("tot",@tot)</td>
+        </tr>
+}
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+            <td>@Html.Label("p","Physics")</td>
+            <td>@Html.TextBox("p","",new {type="number"})</td>
+            <td>@Html.Label("avg","Avg Marks")</td>
+            <td>@Html.TextBox("avg",@avg)</td>
+        </tr>
+         <tr>
+            <td>@Html.Label("c","Chemistry")</td>
+            <td>@Html.TextBox("c","",new {type="number"})</td>
+            <td>@Html.Label("result","Result") </td>
+            <td>@Html.TextBox("result",@result); </td>
+        </tr>
+           <tr>
+            <td colspan="2"><button>Submit</button></td>
+            
+            <td>@Html.Label("grade","Grade") </td>
+            <td>@Html.TextBox("grade",@grade) </td>
+        </tr>
+    </table>
+     <br/>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+public void OnGet()
+        {
+            ViewData["tot"] =0;
+            ViewData["avg"] = 0;
+            ViewData["result"] = string.Empty;
+            ViewData["grade"] = string.Empty;
+        }
+
+
+
+public void OnPost(int m,int p,int c)
+        {
+            int tot = m + p + c;
+            double avg = tot / 3.0;
+            string result;
+            string grade;
+            ViewData["tot"] = tot;
+            ViewData["avg"] = avg;
+            if (m >= 35 && p >= 35 && c >= 35)
+            {
+                result = "PASS";
+                if (avg >= 75) grade = "A1";
+                else if (avg >= 60) grade = "A";
+                else if (avg >= 50) grade = "B";
+                else grade = "C";
+            }
+            else
+            {
+                result = "FAIL";
+                grade = "NA";
+            }
+            ViewData["result"] = result;
+            ViewData["grade"] = grade;
+        }
+
+
+
+
+
+
+
+
+======================
+Week 6 - day 4 :
+----------------
+-----------
+-----------
+<h1>ADO.NET</h1>
+
+<p>It is an API contains classes, used to interact with databases like Sql Server, Oracle, etc.,</p>
+
+@using(Html.BeginForm()){
+    <button>Connect to Sql</button> <br/>
+}
+
+@ViewBag.Message
+=--------------------
+public void OnPost()
+        {
+            string cs = "server=DESKTOP-DM30GHJ;user id=sa;password=welcome;database=EmployeeDB";
+            try
+            {
+                SqlConnection cn = new SqlConnection(cs);
+                cn.Open();
+                ViewData["Message"] = "Connection established successfully...";
+            }
+            catch(SqlException ex)
+            {
+                ViewData["Message"] = "DB Connection error " + ex.Message;
+            }
+            catch ( Exception ex) {
+                ViewData["Message"] = "Error " + ex.Message;
+            }
+        }
+
+
+-----
+<h1>ADO.NET, Ex-01</h1>
+@using(Html.BeginForm()){
+    <button>Submit</button> <br/>
+}
+
+Goto:
+<a asp-page="/adodemo">Index</a> |
+<a asp-page="/adoex01">Ex-01</a> |
+<a asp-page="/adoex02">Ex-02</a> |
+<a asp-page="/adoex03">Ex-03</a> |
+<a asp-page="/adoex04">Ex-04</a> |
+<a asp-page="/adoex05">Ex-05</a>
+
+
+-----------------------------
+Ex01
+
+public class EmpModel
+    {
+        public int Id { get; set; }
+        public string EName { get; set; }
+        public string Job { get; set; }
+        public int Salary { get; set; }
+    }
+
+
+
+
+======================
+Week 6 - day 5 :
+----------------
+
+Ex 04
+-----
+
+
+<h1>ADO.NET, Ex-05</h1>
+@{
+    string ename = ViewBag.ename;
+    string job = ViewBag.job;
+    int salary = Convert.ToInt32(ViewBag.salary);
+}
+<h2>Edit Demo on Employee row</h2>
+@using(Html.BeginForm()){
+
+    @Html.Label("id","Enter Id: "); 
+    @Html.TextBox("id");   
+    <br/>
+    
+    @Html.Label("ename","Employee Name: "); 
+    @Html.TextBox("ename",ename);    <br/>
+
+    @Html.Label("job","Employee Job: "); 
+    @Html.TextBox("job",job);    <br/>
+
+    @Html.Label("salary","Employee Salary: "); 
+    @Html.TextBox("salary",salary);    <br/>
+
+    <button >Edit</button> <br/>
+}
+@ViewBag.Message <br/>
+
+
+
+
+
+
+
+
+
+
+
+
+-------------
+
+//Task: Display rows on output based on button click
+//Task2:	Design Objective question paper ( by getting questions from database table )
+
+
+<button>Employee </button>
+<button>Students </button>
+
+
+EF Core using ASP.NET Core
+
+https://docs.google.com/document/d/1eB_yJPKZnJJA7FrwTNIH-5bRH0SeJR_y/edit?usp=sharing&ouid=110827299025243333109&rtpof=true&sd=true
+
+https://docs.google.com/document/d/0B9_1Wj7x5E8IUzFBLTVsQ3RRSTg/edit?usp=sharing&ouid=110827299025243333109&resourcekey=0-_BlRKkOb8OX_MrGetAE69A&rtpof=true&sd=true
+
+https://docs.google.com/document/d/1VinNTwUigr9dvL9T0Phjjv8WXbTE5Wv3M-rlO8-UTA8/edit?usp=sharing
+
+https://docs.google.com/document/d/1QHJtuiIQARf6QGfK2eh8pfnLjF5bfzWRNFCy-KlTaAo/edit?usp=sharing
+
+
+===============================
+
+Week 7 - Day 1 :
+
+
+string cs = string.Empty;
+        SqlConnection cn = null;
+        SqlCommand cmd = null;
+        string query = string.Empty;
+        
+        public AdoEx08Model()
+        {
+
+            cs = "server=DESKTOP-DM30GHJ;user id=sa;password=welcome;database=SalesDB";
+            cn = new SqlConnection(cs);
+            cn.Open();
+        }
+
+
+
+
+public void OnGet()
+        {
+            ViewData["p1"] = new Product();
+        }
+        public void OnPost(string b1,int id,string productname, string model, int price)
+        {
+            Product p1 = new Product();
+            switch ( b1)
+            {
+                case "search":
+                    query = "spGetProductById";
+                    cmd = new SqlCommand(query, cn);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", id);
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+
+
+
+
+if (dr.Read())
+{
+case "create":
+                    try
+                    {
+                        query = "spAddProduct";
+                        cmd = new SqlCommand(query, cn);
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@productname", productname);
+                        cmd.Parameters.AddWithValue("@model", model);
+                        cmd.Parameters.AddWithValue("@price", price);
+                        cmd.ExecuteNonQuery();
+                        ViewData["Message"] = "Row added successfully...";
+                    }
+From Faculty (Olympus) to Everyone 09:59 PM
+catch ( SqlException ex)
+                    {
+                        ViewData["Message"] = "DB Error ..."+ex.Message;
+                    }
+                    catch (Exception ex)
+                    {
+                        ViewData["Message"] = "Error ..." + ex.Message;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            ViewData["p1"] = p1;
+        }
+    }
+
+
+
+===============================
+
+Week 7 - Day 2 :
+
+Session : 
+----------
+
+It is a time duration bw login and logout
+
+Also used to access data from different pages.
+
+To use this we need to add the package in the program.cs file
+
+
+===============================
+
+Week 7 - Day 3 :
+
+Session : 
+
